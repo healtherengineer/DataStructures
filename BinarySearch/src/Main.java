@@ -27,9 +27,14 @@ public class Main {
         // assuming the array as sorted or enter a sorted array directly
         int[] array = {11, 22, 55, 88, 121, 122, 132};
         System.out.println(Arrays.toString(array));
-        Arrays.sort(array);
-        System.out.println(Arrays.toString(array));
-        System.out.println("index of element is = " + binarySearch(array, 0, ((array.length - 1) / 2), array.length - 1, 22));
+        //Arrays.sort(array);
+        //System.out.println(Arrays.toString(array));
+        int result = binarySearch(array, 0, ((array.length - 1) / 2), array.length - 1, 22);
+        if (result == -1) {
+            System.out.println("Element is not found in the array");
+        } else {
+            System.out.println("index of element is = " + result);
+        }
 
     }
 
