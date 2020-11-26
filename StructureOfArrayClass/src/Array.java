@@ -3,9 +3,9 @@ import java.util.Arrays;
 
 public class Array {
 
-    private int totalNumberOfElements;
-    private int index;
-    private int[] arr;
+    int totalNumberOfElements;
+    int index;
+    int[] arr;
 
     public Array(int sizeOfArray) {
         this.totalNumberOfElements = sizeOfArray;
@@ -15,8 +15,8 @@ public class Array {
 
     public void add(int a) {
         if (index < this.totalNumberOfElements) {
-            this.arr[this.index] = a;
-            index++;
+            this.arr[this.index++] = a;
+
         } else {
             System.err.println("Array is Full . You cannot add any elements! ");
         }
@@ -42,6 +42,7 @@ public class Array {
                 this.arr[i] = this.arr[i + 1];
             }
             this.index--;
+            System.out.println("'" + a + "'" + " was deleted ...");
         } else {
             System.err.println("Element you want to delete is not in the Array !");
         }
@@ -50,7 +51,7 @@ public class Array {
 
     public void update(int current, int newValue) {
         int index = find(current);
-        //     if()
+
         this.arr[index] = newValue;
         System.out.println(current + " is updated as " + newValue + " .");
     }

@@ -31,9 +31,9 @@ public class Main {
         //System.out.println(Arrays.toString(array));
         int result = binarySearch(array, 0, ((array.length - 1) / 2), array.length - 1, 22);
         if (result == -1) {
-            System.out.println("Element is not found in the array");
+            System.out.println("The element is not found in the array");
         } else {
-            System.out.println("index of element is = " + result);
+            System.out.println("Index of the element is = " + result);
         }
 
     }
