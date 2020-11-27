@@ -3,80 +3,88 @@ import java.util.Arrays;
 
 public class Sorting {
 
-    int[] dizi;
+    int[] arr;
 
-    public Sorting(int[] dizi) {
-        this.dizi = dizi;
+    public Sorting(int[] array) {
+        this.arr = array;
     }
 
     public void bubbleSort() {
 
         int temp = 0;
-        System.out.println("Sırasız dizi : " + Arrays.toString(dizi));
-        boolean girdiMi = true;// iyileştirme
-        for (int i = 0; i < dizi.length && girdiMi; i++) {
+        System.out.println("Unordered array : " + Arrays.toString(arr));
+        boolean insideIf = true;// optimization
+        for (int i = 0; i < arr.length && insideIf; i++) {
 
-            girdiMi = false; // iyileştirme
+            insideIf = false; // optimization
 
-            for (int j = 0; j < dizi.length - 1; j++) {
+            for (int j = 0; j < arr.length - 1; j++) {
 
-                if (dizi[j] > dizi[j + 1]) {
+                if (arr[j] > arr[j + 1]) {
 
-                    temp = dizi[j];
-                    dizi[j] = dizi[j + 1];
-                    dizi[j + 1] = temp;
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
 
-                    girdiMi = true;// iyileştirme
+                    insideIf = true;// optimization
                 }
             }
-            System.out.println(i + "-" + Arrays.toString(dizi));
+            System.out.println(i + "-" + Arrays.toString(arr));
         }
+        infoMessage();
 
     }
 
     public void selectionSort() {
 
         int temp = 0;
-        int min;
-        System.out.println("Sırasız dizi : " + Arrays.toString(dizi));
+        int minimum;
+        System.out.println("Unordered array : " + Arrays.toString(arr));
 
-        for (int i = 0; i < dizi.length; i++) {
-            min = i;
-            for (int j = i + 1; j < dizi.length; j++) {
+        for (int i = 0; i < arr.length; i++) {
+            minimum = i;
+            for (int j = i + 1; j < arr.length; j++) {
 
-                if (dizi[j] < dizi[min]) {
+                if (arr[j] < arr[minimum]) {
 
-                    min = j;
+                    minimum = j;
                 }
             }
 
-            if (i != min) {
-                temp = dizi[min];
-                dizi[min] = dizi[i];
-                dizi[i] = temp;
+            if (i != minimum) {
+                temp = arr[minimum];
+                arr[minimum] = arr[i];
+                arr[i] = temp;
 
             }
 
-            System.out.println(i + "-" + Arrays.toString(dizi));
+            System.out.println(i + "-" + Arrays.toString(arr));
 
         }
+        infoMessage();
 
     }
 
     public void insertionSort() {
         int temp = 0;
         int j;
-        System.out.println("Sırasız dizi : " + Arrays.toString(dizi));
+        System.out.println("Unordered array : " + Arrays.toString(arr));
 
-        for (int i = 1; i < dizi.length; i++) {
-            temp = dizi[i];
-            for (j = i - 1; j >= 0 && temp < dizi[j]; j--) { // önemli olan bu satır !!!
+        for (int i = 1; i < arr.length; i++) {
+            temp = arr[i];
+            for (j = i - 1; j >= 0 && temp < arr[j]; j--) { // This is most important line in this method !!! 
 
-                dizi[j + 1] = dizi[j];
+                arr[j + 1] = arr[j];
             }
-            dizi[j + 1] = temp; // döngünün içeri sokmayan son j değeri döneceğinden j+1 e yolluyoruz !!!
-            System.out.println(i + "-" + Arrays.toString(dizi));
+            arr[j + 1] = temp; //döngünün içeri sokmayan son j değeri döneceğinden j+1 e yolluyoruz !!!
+            System.out.println(i + "-" + Arrays.toString(arr));
         }
+        infoMessage();
+    }
+
+    public void infoMessage() {
+        System.out.print("Last state :: Ordered array =>");
+        System.out.println(Arrays.toString(arr));
     }
 
 }
