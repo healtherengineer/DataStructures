@@ -3,10 +3,10 @@ import java.util.Arrays;
 
 public class Queue {
 
-    private int elementCount;
-    private int[] array;
-    private int head;
-    private int tail;
+    int elementCount;
+    int[] array;
+    int head;
+    int tail;
 
     public Queue(int boyut) {
         this.elementCount = 0;
@@ -25,7 +25,7 @@ public class Queue {
             this.elementCount++;
 
         } else {
-            System.out.println("Quee is Full ..!" + yeni + " was not added by the program ...");
+            System.out.println("Queue is Full ..!" + yeni + " was not added by the program ...");
         }
 
     }

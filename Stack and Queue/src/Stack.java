@@ -3,8 +3,8 @@ import java.util.Arrays;
 
 public class Stack {
 
-    private int elementCount;
-    private int[] array;
+    int elementCount;
+    int[] array;
 
     public Stack(int stackSize) {
 
@@ -27,7 +27,6 @@ public class Stack {
             this.elementCount--;
             return temp;
 
-//            return this.dizi[es--]; benimki  ...
         } else {
             System.out.println("Stack is Empty ..!");
             return -1;
@@ -55,16 +54,17 @@ public class Stack {
         System.out.println(">" + Arrays.toString(array));
 
     }
-    public int peek(){
-        if(!this.isEmpty()){
-            int tmp = this.array[elementCount-1];
-            this.elementCount--;
-            return tmp ;
-         
-            
-        } else{
+
+    public int peek() {
+        if (!this.isEmpty()) {
+            int tmp = this.array[elementCount - 1]; // Peek method return top value of the stack without removing .!.
+            // here is difference between peek and pop methods 
+
+            return tmp;
+
+        } else {
             System.out.println("There is no element in the Stack");
-            return -1 ;
+            return -1; // invalid value for this project it depends on project
         }
     }
 

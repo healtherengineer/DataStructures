@@ -2,7 +2,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Stack s = new Stack(5);
+//        Stack s = new Stack(5);
 //        s.print();
 //        s.push(5);
 //        s.print();
@@ -34,7 +34,7 @@ public class Main {
 //
 //s.pop();
 //s.print();
-
+//
 //s.pop();
 //s.print();
 //
@@ -53,6 +53,11 @@ public class Main {
 //s.push(31);
 //s.print();
 //s.push(98);
+//        System.out.println(s.peek());
+//        s.print();
+//s.pop();
+//
+//s.print();
         Queue k = new Queue(5);
 
         k.print();
@@ -87,7 +92,9 @@ public class Main {
         k.print();
         k.remove();
         k.print();
-
+        k.remove();
+        k.print();
+        k.remove(); // queue is empty
     }
 
 }
