@@ -12,13 +12,13 @@ public class ShellSorting {
 
         int n = array.length;
 
-        for (int gap = n / 2; gap < array.length; gap /= 2) {
+        for (int gap = n / 2; gap >= 1; gap /= 2) {
 
             for (int i = gap; i < n; i++) {
                 int j;
                 for (j = i - gap; j >= 0; j -= gap) {
                     if (array[j + gap] < array[j]) {
-                        swap(array[j + gap], array[j]);
+                        swap((j + gap), j);
                     }
                 }
             }
@@ -28,9 +28,9 @@ public class ShellSorting {
     }
 
     public void swap(int a, int b) {
-        int temp = a;
-        a = b;
-        b = temp;
+        int temp = this.array[a];
+        this.array[a] = this.array[b];
+        this.array[b] = temp;
     }
 
     public void printArray() {
