@@ -16,9 +16,14 @@ public class ShellSorting {
 
             for (int i = gap; i < n; i++) {
                 int j;
-                for (j = i - gap; j >= 0; j -= gap) {
+                boolean enter = true;
+                for (j = i - gap; j >= 0 && enter; j -= gap) {
                     if (array[j + gap] < array[j]) {
                         swap((j + gap), j);
+                        System.out.println("");
+                        printArray();
+                    } else {
+                        enter = false;
                     }
                 }
             }
@@ -34,7 +39,7 @@ public class ShellSorting {
     }
 
     public void printArray() {
-      
+
         for (int i = 0; i < this.array.length; i++) {
             System.out.print(this.array[i] + ",");
         }
