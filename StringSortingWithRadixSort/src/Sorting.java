@@ -3,13 +3,12 @@ public class Sorting {
 
     String arr[];
     char[] alphabet = {'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'ı', 'i', 'j', 'k', 'l', 'm', 'n',
-        'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'w', 'x', 'y', 'z', '*'};
+        'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'w', 'x', 'y', 'z', '?'};
 
     public Sorting(String[] arr) {
         this.arr = arr;
     }
 
-    //Yeni
     void sort(int ind) {
         int n = arr.length;
         String[] temp = new String[n];
@@ -52,15 +51,15 @@ public class Sorting {
 
     public String[] addStar() {
         String[] temp = new String[arr.length];
-        int longestString = largestString();
+        int largest = largestString();
         for (int i = 0; i < arr.length; i++) {
             temp[i] = arr[i];
         }
 
         for (int i = 0; i < temp.length; i++) {
 
-            for (int j = 0; j < longestString - arr[i].length(); j++) {
-                temp[i] += "*";
+            for (int j = 0; j < largest - arr[i].length(); j++) {
+                temp[i] += "?";
 
             }
 
