@@ -8,8 +8,11 @@ public class Main {
             "Ramazan", "Ahmet", "Xamer", "Zeynep", "aysima"};
 
         Sorting s = new Sorting(dizi);
-
+        System.out.print("Unsorted String array : ");
+        s.printArray(dizi);
         s.radix();
+        System.out.println("");
+        System.out.print("Sorted String array : ");
         s.printArray(dizi);
 
     }
