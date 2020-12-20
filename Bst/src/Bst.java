@@ -98,6 +98,31 @@ public class Bst {
         }
         return getMin(current.left);
     }
+ void inorder() { inorderRec(root); }
+    public void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.print(root.key + " ");
+            inorderRec(root.right);
+        }
+    }
+ void preOrder() { preOrderRec(root); }
+    public void preOrderRec(Node root) {
+        if (root != null) {
+            System.out.print(root.key + " ");
+            preOrderRec(root.left);
+            preOrderRec(root.right);
+        }
+    }
+void postOrder() { postOrderRec(root); }
+      public void postOrderRec(Node root) {
+        if (root != null) {
+           
+            postOrderRec(root.left);
+            postOrderRec(root.right);
+             System.out.print(root.key + " ");
+        }
+    }
 
     public void printTree() {
         System.out.println(this.root);

@@ -1,12 +1,11 @@
 
 import java.util.Arrays;
 
-
 public class Main {
 
     public static void main(String[] args) {
         Bst bst = new Bst();
-        
+
         // Build tree
         bst.insert(10); // root değeri 
         bst.insert(6);
@@ -24,33 +23,30 @@ public class Main {
         // System.out.println(bst.search(6)); // 15 bir leaf miş search yaptığımızda recursive çalıştığından dipten çağırır bizim çağırdığımız yere kadar
         //    System.out.println(bst.search(6)); // yaptığımızda 6 olan düğümü yazdırmaya çalışıyoruz toString metodu yüzünden recursive altındakiler de geliyor
         // toString metodunu düzenlediğimizde artık sadece değer döner oldu Gördüğünüz gibi.
-        
-                    // Find Min Max 
+        // Find Min Max 
 //        System.out.println("The greatest key is : " + bst.getMax(bst.root));
 //        System.out.println("The smallest key is : " + bst.getMin(bst.root));
-
-        
-            //Deletion
+        //Deletion
 //        bst.printTree();
 //        bst.delete(8); // leaf
 //        bst.printTree();
-
 //        bst.printTree();
 //        bst.delete(15); // one child
 //        bst.printTree();
-
 //        bst.printTree();
 //        bst.delete(6); // two child
 //        bst.printTree();
-
 //        bst.printTree();
 //        bst.delete(10);  // deleting root
 //        bst.printTree();
+        //  System.out.println(bst.search(45)); // tree de olmadığı için null yani boş döner .
+        bst.printTree();
 
-      //  System.out.println(bst.search(45)); // tree de olmadığı için null yani boş döner .
-      bst.printTree();
-   
-
+        bst.inorder();
+        System.out.println("");
+        bst.preOrder();
+        System.out.println("");
+        bst.postOrder();
         
     }
 
