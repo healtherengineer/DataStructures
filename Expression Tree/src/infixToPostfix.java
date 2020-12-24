@@ -66,7 +66,7 @@ public class infixToPostfix {
                 
                 if(stack.peek().equals("(")){
                     while(stack.peek().equals("(")){
-                        stack.pop();
+                        stack.pop();  // kalan parantezleri temizledik.
                     }
                 }
                 
