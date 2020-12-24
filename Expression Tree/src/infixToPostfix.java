@@ -63,10 +63,16 @@ public class infixToPostfix {
                     result.add(stack.pop()); // eğer kapalı parantez görürse açık parantez görene kadar pop lıyoruz
 
                 }
-               
+                
+                if(stack.peek().equals("(")){
+                    while(stack.peek().equals("(")){
+                        stack.pop();
+                    }
+                }
+                
                    result.add(stack.pop()); // elimiz deki elemanı eklemeliyiz...HERŞEYİ SİL BUNU SİLME
-               
-                stack.pop(); // '(' bunuda attık yok ettik
+                   stack.pop(); // '(' bunuda attık yok ettik
+              
 
             } else // an operator is encountered 
             {
