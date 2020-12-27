@@ -12,7 +12,7 @@ public class AvlTree {
 
     public int getHeight(Node n) {
         if (n == null) {
-            return 0;// if the object is null ,then height of that is zero (0)
+            return 0;
         }
         return n.height;
     }
@@ -62,8 +62,7 @@ public class AvlTree {
 
     private Node insertRecursive(Node current, Node key) {
         if (current == null) {
-//            Node c = new Node(key);
-//            return c;
+
             return key;
         } else if (current.result > key.result) {
             current.left = insertRecursive(current.left, key);
@@ -74,9 +73,7 @@ public class AvlTree {
             return current; // duplicate eleman olmasına izin vermeyip eşitse return liyoruz.
         }
         current.height = 1 + findMax(getHeight(current.left), getHeight(current.right));
-        // şu gelen 1 kendiliğinden olan bir olduğu için ve eklediğimizin direk height ini güncelledik 
 
-        // şimdi sıra balance ları kontrol etmede rotate edilecek bir durum var mı onu öngörmemiz gerekli
         int balance = getBalance(current);
 
         if (balance > 1) {
@@ -174,24 +171,22 @@ public class AvlTree {
     }
 
     public Node findNode(Node root, Node key) {
-        // Base Cases: root is null or key is present at root 
+
         if (root == null || root.result == key.result) {
             return root;
         }
 
-        // Key is greater than root's key 
         if (root.result < key.result) {
             return findNode(root.right, key);
         }
 
-        // Key is smaller than root's key 
         return findNode(root.left, key);
     }
 
     public void update(Node eski) {
         Scanner scanner = new Scanner(System.in);
         if (isThere(eski.result)) {
-            
+
             System.out.println("Güncellenecek düğüm : " + eski.operand + " " + eski.firstElement + " " + eski.secondElement);
             delete(eski);
             System.out.print("Yeni üçlü ifadeyi giriniz : ");
