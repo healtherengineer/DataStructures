@@ -1,18 +1,18 @@
 
-public class Heap {
+public class Queue {
 
-    int[] array;
+    Person[] array;
     int index;
     int size;
 
-    public Heap(int[] array) {
-        this.array = array;
+    public Queue() {
+        this.array = new Person[100];
         this.index = 0;
         this.size = array.length;
     }
 
     public void swap(int a, int b) {
-        int temp = this.array[a];
+        Person temp = this.array[a];
         this.array[a] = this.array[b];
         this.array[b] = temp;
 
@@ -22,7 +22,7 @@ public class Heap {
         boolean c = true;
         for (int i = indis; indis >= 0 && c;) {
             c = false;
-            if (this.array[indis] > this.array[(indis - 1) / 2]) {
+            if (this.array[indis].aciliyet > this.array[(indis - 1) / 2].aciliyet) {
                 c = true;
 
                 swap(indis, (indis - 1) / 2);
@@ -35,7 +35,7 @@ public class Heap {
 
     }
 
-    public void insert(int x) {
+    public void insert(Person x) {
 
         if (isEmpty()) {
             this.array[index] = x;
@@ -55,9 +55,9 @@ public class Heap {
     }
 
     // deletion proccesing
-    public Object delete() {
+    public Person delete() {
         if (!isEmpty()) {
-            Object tmp = this.array;
+            Person tmp = this.array[0];
             this.array[0] = this.array[this.index - 1];
             this.index--;
             heapifyDown();
@@ -77,12 +77,12 @@ public class Heap {
             int l = 2 * i + 1;
             int r = 2 * i + 2;
             if (l < this.index && r < this.index) {
-                if (this.array[i] < this.array[l] || this.array[i] < this.array[r]) {
+                if (this.array[i].aciliyet < this.array[l].aciliyet || this.array[i].aciliyet < this.array[r].aciliyet) {
                     c = true;
-                    if (this.array[l] < this.array[r] && this.array[i] < this.array[r]) {
+                    if (this.array[l].aciliyet < this.array[r].aciliyet && this.array[i].aciliyet < this.array[r].aciliyet) {
                         swap(i, r);
                         i = 2 * i + 2;
-                    } else if (this.array[r] < this.array[l] && this.array[i] < this.array[l]) {
+                    } else if (this.array[r].aciliyet < this.array[l].aciliyet && this.array[i].aciliyet < this.array[l].aciliyet) {
                         swap(i, l);
                         i = 2 * i + 1;
                     }
@@ -90,14 +90,14 @@ public class Heap {
 
             } else if (l < this.index) {
                 c = true;
-                if (this.array[i] < this.array[l]) {
+                if (this.array[i].aciliyet < this.array[l].aciliyet) {
                     swap(i, l);
                 }
                 i = 2 * i + 1;
 
             } else if (r < this.index) {
                 c = true;
-                if (this.array[i] < this.array[r]) {
+                if (this.array[i].aciliyet < this.array[r].aciliyet) {
                     swap(i, r);
                     i = 2 * i + 2;
                 }
@@ -116,7 +116,7 @@ public class Heap {
         return this.index == 0;
     }
 
-    public void printHeap() {
+    public void printQueue() {
         System.out.print("[");
         for (int i = 0; i < this.index; i++) {
             System.out.print(this.array[i] + "," + " ");
